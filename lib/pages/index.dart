@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/components/banner.dart';
+import 'package:portfolio/components/button.dart';
+import 'package:portfolio/components/cursor.dart';
 import 'package:portfolio/components/dot_printer.dart';
 import 'package:portfolio/components/glassmorphic_circle.dart';
+import 'package:portfolio/components/role.dart';
 
 class MyIndexScreen extends StatelessWidget {
   const MyIndexScreen({super.key});
@@ -10,16 +14,31 @@ class MyIndexScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
+          CustomCursorWidget(),
           const DottedContainer(),
           Center(
-            child: Container(
-              height: 60,
-              width: 60,
-              color: Colors.red,
+            child: GlassMorphicCircle(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'SheikhUmaid.',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: MediaQuery.of(context).size.width * 0.07,
+                        ),
+                      ),
+                      Role(),
+                    ],
+                  ),
+                  ComponentBanner(),
+                  DownloadButton()
+                ],
+              ),
             ),
-          ),
-          const Center(
-            child: GlassMorphicCircle(),
           )
         ],
       ),

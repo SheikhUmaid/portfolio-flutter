@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class GlassMorphicCircle extends StatelessWidget {
-  const GlassMorphicCircle({super.key});
-
+  const GlassMorphicCircle({super.key, required this.child});
+  final Widget child;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,6 +31,7 @@ class GlassMorphicCircle extends StatelessWidget {
           filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
           child: Container(
             color: Colors.white.withOpacity(0.0),
+            child: child,
           ),
         ),
       ),
