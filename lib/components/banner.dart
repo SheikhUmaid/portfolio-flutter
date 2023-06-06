@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
+import 'package:portfolio/utlis/media_query.dart';
 
 class ComponentBanner extends StatelessWidget {
   const ComponentBanner({super.key});
@@ -7,8 +8,10 @@ class ComponentBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
-      width: MediaQuery.of(context).size.width * 0.4,
+      padding: const EdgeInsets.all(10),
+      width: MEDQ.wSizer(context, 1340)
+          ? MediaQuery.of(context).size.width * 0.6
+          : MediaQuery.of(context).size.width * 0.4,
       height: 70,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.blue, width: 3),
@@ -18,7 +21,7 @@ class ComponentBanner extends StatelessWidget {
         child: Marquee(
           text:
               'Web    💻    Developer    </>    Flutter    |    Android    📱    Dart    </>    IOS    🍎    Python    </>    ',
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
             fontSize: 25,
@@ -27,11 +30,11 @@ class ComponentBanner extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           blankSpace: 20.0,
           velocity: 100.0,
-          pauseAfterRound: Duration(seconds: 1),
+          pauseAfterRound: const Duration(seconds: 1),
           startPadding: 10.0,
-          accelerationDuration: Duration(seconds: 1),
+          accelerationDuration: const Duration(seconds: 1),
           accelerationCurve: Curves.linear,
-          decelerationDuration: Duration(milliseconds: 500),
+          decelerationDuration: const Duration(milliseconds: 500),
           decelerationCurve: Curves.easeOut,
         ),
       ),
