@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/utlis/media_query.dart';
 
+// ignore: must_be_immutable
 class DottedContainer extends StatelessWidget {
-  const DottedContainer({super.key});
-
+  DottedContainer(
+      {super.key, this.bg = Colors.black, this.dotsColor = Colors.white});
+  Color bg;
+  Color dotsColor;
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      color: bg,
       height: double.infinity,
       width: double.infinity,
       child: CustomPaint(
-        painter: DottedPainter(),
+        painter: DottedPainter(dotsColor: dotsColor),
       ),
     );
   }
 }
 
 class DottedPainter extends CustomPainter {
+  DottedPainter({this.dotsColor = Colors.white});
+  Color dotsColor;
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.white.withOpacity(.2)
+      ..color = dotsColor
       ..strokeWidth = 2.0
       ..style = PaintingStyle.stroke;
 

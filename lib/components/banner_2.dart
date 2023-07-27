@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/utlis/media_query.dart';
 
 class BannerTwo extends StatelessWidget {
-  const BannerTwo({super.key});
-
+  BannerTwo({super.key, this.fg = Colors.white});
+  Color fg;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +14,7 @@ class BannerTwo extends StatelessWidget {
           Text(
             'Building ',
             style: TextStyle(
-                color: Colors.white,
+                color: fg,
                 fontSize: !MEDQ.wSizer(context, 1340)
                     ? MediaQuery.of(context).size.width * 0.020
                     : MediaQuery.of(context).size.width * 0.04,
@@ -29,7 +29,7 @@ class BannerTwo extends StatelessWidget {
               )),
           Text('With Code',
               style: TextStyle(
-                  color: Colors.white,
+                  color: fg,
                   fontSize: !MEDQ.wSizer(context, 1340)
                       ? MediaQuery.of(context).size.width * 0.020
                       : MediaQuery.of(context).size.width * 0.04,

@@ -3,8 +3,8 @@ import 'package:marquee/marquee.dart';
 import 'package:portfolio/utlis/media_query.dart';
 
 class ComponentBanner extends StatelessWidget {
-  const ComponentBanner({super.key});
-
+  ComponentBanner({super.key, this.fg = Colors.white});
+  Color fg;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,9 +21,9 @@ class ComponentBanner extends StatelessWidget {
         child: Marquee(
           text:
               'Web    💻    Developer    </>    Flutter    |    Android    📱    Dart    </>    IOS    🍎    Python    </>    ',
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: fg,
             fontSize: 25,
           ),
           scrollAxis: Axis.horizontal,

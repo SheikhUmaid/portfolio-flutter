@@ -7,11 +7,19 @@ import 'package:portfolio/components/dot_printer.dart';
 import 'package:portfolio/components/glassmorphic_circle.dart';
 import 'package:portfolio/components/icon_button.dart';
 import 'package:portfolio/components/role.dart';
+import 'package:portfolio/utlis/colors.dart';
 
 import '../utlis/media_query.dart';
 
-class MyIndexScreen extends StatelessWidget {
+class MyIndexScreen extends StatefulWidget {
   const MyIndexScreen({super.key});
+
+  @override
+  State<MyIndexScreen> createState() => _MyIndexScreenState();
+}
+
+class _MyIndexScreenState extends State<MyIndexScreen> {
+  bool isDark = true;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +27,18 @@ class MyIndexScreen extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           CustomCursorWidget(),
-          const DottedContainer(),
+          DottedContainer(
+            bg: isDark ? ThemeColors().darkBg : ThemeColors().lightBg,
+            dotsColor:
+                isDark ? ThemeColors().whiteDots : ThemeColors().blackDots,
+          ),
           Center(
             child: GlassMorphicCircle(
+              stroke:
+                  isDark ? ThemeColors().lightStroke : ThemeColors().darkStroke,
+              outerShadow: !isDark
+                  ? ThemeColors().lightOuterShadow
+                  : ThemeColors().darkOuterShadow,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -31,24 +48,30 @@ class MyIndexScreen extends StatelessWidget {
                       Text(
                         'SheikhUmaid.',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: isDark
+                              ? ThemeColors().darkFg
+                              : ThemeColors().lightFg,
                           fontSize: MEDQ.wSizer(context, 1340)
                               ? MediaQuery.of(context).size.width * 0.1
                               : MediaQuery.of(context).size.width * 0.07,
                           height: MediaQuery.of(context).size.height * 0.0009,
                         ),
                       ),
-                      Role(),
+                      const Role(),
                     ],
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
-                  const ComponentBanner(),
+                  ComponentBanner(
+                    fg: isDark ? ThemeColors().darkFg : ThemeColors().lightFg,
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
-                  const BannerTwo(),
+                  BannerTwo(
+                    fg: isDark ? ThemeColors().darkFg : ThemeColors().lightFg,
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
@@ -70,7 +93,26 @@ class MyIndexScreen extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.all(30),
+            child: IconButton(
+              icon: isDark
+                  ? const Icon(
+                      Icons.nights_stay,
+                      color: Colors.white,
+                    )
+                  : const Icon(
+                      Icons.wb_sunny,
+                      color: Colors.black,
+                    ),
+              onPressed: () {
+                setState(() {
+                  isDark = !isDark;
+                });
+              },
+            ),
+          ),
         ],
       ),
     );

@@ -4,8 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/utlis/media_query.dart';
 
 class GlassMorphicCircle extends StatelessWidget {
-  const GlassMorphicCircle({super.key, required this.child});
+  const GlassMorphicCircle(
+      {super.key,
+      required this.child,
+      required this.stroke,
+      required this.outerShadow});
   final Widget child;
+  final Color stroke;
+  final Color outerShadow;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +23,7 @@ class GlassMorphicCircle extends StatelessWidget {
           : MediaQuery.of(context).size.width * 0.5,
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.white.withOpacity(0.5),
+          color: stroke, //stroke
           width: 1.5,
         ),
         borderRadius: BorderRadius.circular(!MEDQ.wSizer(context, 1340)
@@ -26,7 +32,7 @@ class GlassMorphicCircle extends StatelessWidget {
         color: Colors.white.withOpacity(0),
         boxShadow: [
           BoxShadow(
-            color: Colors.white.withOpacity(0.1),
+            color: outerShadow, //outerShadow
             blurRadius: 12,
             spreadRadius: 4,
           ),

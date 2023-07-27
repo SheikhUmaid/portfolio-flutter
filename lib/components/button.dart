@@ -12,7 +12,7 @@ class DownloadButton extends StatelessWidget {
         onPressed: () {
           html.AnchorElement(
               href:
-                  'https://drive.google.com/uc?export=download&id=1hJIqlI05FQtuyJj_Bbr0RtWzWuN_yki6hOIcCsy9JUc')
+                  'https://drive.google.com/uc?export=download&id=1KZuLyuiIunfJ6BvFetV3lVDvF7WS0ZBY')
             ..setAttribute('download', 'cv.pdf')
             ..click();
         },
