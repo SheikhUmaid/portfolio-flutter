@@ -12,8 +12,9 @@ class DownloadButton extends StatelessWidget {
         onPressed: () {
           html.AnchorElement(
               href:
-                  'https://drive.google.com/uc?export=download&id=1KZuLyuiIunfJ6BvFetV3lVDvF7WS0ZBY')
-            ..setAttribute('download', 'cv.pdf')
+                  'https://drive.google.com/file/d/1H9dQwqdHuIQ6Kf5ZTHbCsEfplWSnP9Yk/view')
+            ..setAttribute('download', 'Sheikh-Umaid-CV.pdf')
+            ..setAttribute('target', "_blank")
             ..click();
         },
         style: ElevatedButton.styleFrom(

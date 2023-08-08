@@ -3,8 +3,8 @@ import 'package:marquee/marquee.dart';
 import 'package:portfolio/utlis/media_query.dart';
 
 class ComponentBanner extends StatelessWidget {
-  ComponentBanner({super.key, this.fg = Colors.white});
-  Color fg;
+  const ComponentBanner({super.key, this.fg = Colors.white});
+  final Color fg;
   @override
   Widget build(BuildContext context) {
     return Container(

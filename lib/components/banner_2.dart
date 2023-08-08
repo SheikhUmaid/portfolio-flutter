@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/utlis/media_query.dart';
 
 class BannerTwo extends StatelessWidget {
-  BannerTwo({super.key, this.fg = Colors.white});
-  Color fg;
+  const BannerTwo({super.key, this.fg = Colors.white});
+  final Color fg;
   @override
   Widget build(BuildContext context) {
     return Padding(
