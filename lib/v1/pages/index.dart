@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/v1/components/banner.dart';
 import 'package:portfolio/v1/components/banner_2.dart';
 import 'package:portfolio/v1/components/button.dart';
-import 'package:portfolio/v1/components/cursor.dart';
 import 'package:portfolio/v1/components/dot_printer.dart';
 import 'package:portfolio/v1/components/glassmorphic_circle.dart';
 import 'package:portfolio/v1/components/icon_button.dart';
@@ -20,13 +19,13 @@ class MyIndexScreen extends StatefulWidget {
 
 class _MyIndexScreenState extends State<MyIndexScreen> {
   bool isDark = true;
-
+  double _height = double.infinity;
+  double _width = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          CustomCursorWidget(),
           DottedContainer(
             bg: isDark ? ThemeColors().darkBg : ThemeColors().lightBg,
             dotsColor:
@@ -95,26 +94,80 @@ class _MyIndexScreenState extends State<MyIndexScreen> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(30),
-            child: IconButton(
-              icon: isDark
-                  ? const Icon(
-                      Icons.nights_stay,
-                      color: Colors.white,
-                    )
-                  : const Icon(
-                      Icons.wb_sunny,
-                      color: Colors.black,
-                    ),
-              onPressed: () {
-                setState(() {
-                  isDark = !isDark;
-                });
-              },
+            margin: const EdgeInsets.all(30),
+            child: Stack(
+              children: [
+                IconButton(
+                  icon: isDark
+                      ? const Icon(
+                          Icons.nights_stay,
+                          color: Colors.white,
+                        )
+                      : const Icon(
+                          Icons.wb_sunny,
+                          color: Colors.black,
+                        ),
+                  onPressed: () {
+                    setState(() {
+                      _toggleContainerSize();
+                    });
+                  },
+                ),
+              ],
             ),
           ),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 500),
+            height: _height,
+            width: _width,
+            curve: Curves.easeIn,
+            decoration: BoxDecoration(
+              color: isDark ? Colors.white : Colors.black,
+              boxShadow: [
+                BoxShadow(
+                  color: isDark
+                      ? Colors.grey.withOpacity(0.5)
+                      : Colors.black.withOpacity(0.5), // Shadow color
+                  spreadRadius: 5,
+                  blurRadius: 10,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+                BoxShadow(
+                  color: isDark
+                      ? Colors.grey.withOpacity(0.5)
+                      : Colors.black.withOpacity(0.5), // Shadow color
+                  spreadRadius: 5,
+                  blurRadius: 10,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+                BoxShadow(
+                  color: isDark
+                      ? Colors.grey.withOpacity(0.5)
+                      : Colors.black.withOpacity(0.5), // Shadow color
+                  spreadRadius: 5,
+                  blurRadius: 10,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
+            ),
+          ),
+          // MouseRegion(),
         ],
       ),
     );
+  }
+
+  Future<void> _toggleContainerSize() async {
+    setState(() {
+      // Max height
+      _width = MediaQuery.of(context).size.width; // Max width
+    });
+
+    await Future.delayed(Duration(milliseconds: 750));
+    isDark = !isDark;
+
+    setState(() {
+      _width = 0;
+    });
   }
 }
