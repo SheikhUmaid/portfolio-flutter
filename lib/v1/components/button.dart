@@ -12,7 +12,7 @@ class DownloadButton extends StatelessWidget {
         onPressed: () {
           html.AnchorElement(
               href:
-                  'https://drive.google.com/file/d/1H9dQwqdHuIQ6Kf5ZTHbCsEfplWSnP9Yk/view')
+                  'https://drive.google.com/file/d/1qP3HAjk6miSGGw_t1XiopEkUPcQIQKMG/view?usp=drive_link')
             ..setAttribute('download', 'Sheikh-Umaid-CV.pdf')
             ..setAttribute('target', "_blank")
             ..click();

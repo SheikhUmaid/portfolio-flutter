@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/banner.dart';
-import 'package:portfolio/components/banner_2.dart';
-import 'package:portfolio/components/button.dart';
-import 'package:portfolio/components/cursor.dart';
-import 'package:portfolio/components/dot_printer.dart';
-import 'package:portfolio/components/glassmorphic_circle.dart';
-import 'package:portfolio/components/icon_button.dart';
-import 'package:portfolio/components/role.dart';
-import 'package:portfolio/utlis/colors.dart';
+import 'package:portfolio/v1/components/banner.dart';
+import 'package:portfolio/v1/components/banner_2.dart';
+import 'package:portfolio/v1/components/button.dart';
+import 'package:portfolio/v1/components/cursor.dart';
+import 'package:portfolio/v1/components/dot_printer.dart';
+import 'package:portfolio/v1/components/glassmorphic_circle.dart';
+import 'package:portfolio/v1/components/icon_button.dart';
+import 'package:portfolio/v1/components/role.dart';
+import 'package:portfolio/v1/utlis/colors.dart';
 
 import '../utlis/media_query.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 
-import 'package:portfolio/utlis/media_query.dart';
+import 'package:portfolio/v1/utlis/media_query.dart';
 
 class IconsButton extends StatelessWidget {
   const IconsButton({super.key, required this.icon, required this.link});

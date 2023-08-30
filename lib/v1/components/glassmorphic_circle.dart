@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:portfolio/utlis/media_query.dart';
+import 'package:portfolio/v1/utlis/media_query.dart';
 
 class GlassMorphicCircle extends StatelessWidget {
   const GlassMorphicCircle(

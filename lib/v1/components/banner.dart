@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
-import 'package:portfolio/utlis/media_query.dart';
+import 'package:portfolio/v1/utlis/media_query.dart';
 
 class ComponentBanner extends StatelessWidget {
   const ComponentBanner({super.key, this.fg = Colors.white});

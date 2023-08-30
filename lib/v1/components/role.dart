@@ -5,7 +5,7 @@ class Role extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Developer',
+    return const Text('Developer',
         style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.blue,

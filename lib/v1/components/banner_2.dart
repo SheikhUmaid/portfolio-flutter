@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/utlis/media_query.dart';
+import 'package:portfolio/v1/utlis/media_query.dart';
 
 class BannerTwo extends StatelessWidget {
   const BannerTwo({super.key, this.fg = Colors.white});
