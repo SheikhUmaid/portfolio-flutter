@@ -163,7 +163,7 @@ class _MyIndexScreenState extends State<MyIndexScreen> {
       _width = MediaQuery.of(context).size.width; // Max width
     });
 
-    await Future.delayed(Duration(milliseconds: 750));
+    await Future.delayed(const Duration(milliseconds: 750));
     isDark = !isDark;
 
     setState(() {
